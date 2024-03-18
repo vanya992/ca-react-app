@@ -1,17 +1,35 @@
 import React from "react";
 import logo from "../../images/logo.png";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function Navbar() {
-    return (
-        <nav className="nav">
-            <a href="/home"><img src={logo} alt="Logo of the market place" className="logoImg" /></a>
-            <ul>
-                <li><a href="/products">Products</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    )
+  return (
+    <BrowserRouter>
+      <nav>
+        <Link to="/">
+          <img src={logo} alt="Logo of the market place" className="logoImg" />
+        </Link>
+        <ul>
+          <li>
+            <Link to="/products">Products</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route index element={<div>Home</div>} />
+        <Route path="products" element={<div>Products</div>} />
+        <Route path="contact" element={<div>Contact</div>} />
+        <Route path="cart" element={<div>Cart</div>} />
+        <Route path="*" element={<div>Route not found</div>} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default Navbar;
