@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "../../images/logo.png";
+import logo from "../../assets/images/logo.png";
+import shoppingCart from "../../assets/images/shoppingCart.png";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
@@ -22,7 +23,13 @@ function Navbar() {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">
+              <img
+                src={shoppingCart}
+                alt="Logo of the market place"
+                className={styles.shoppingCart}
+              />
+            </Link>
           </li>
         </ul>
       </nav>

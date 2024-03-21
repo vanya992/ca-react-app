@@ -37,3 +37,8 @@ nav ul a:hover {
   height: 50px;
   width: auto;
 }
+
+.shoppingCart {
+  width: 20px;
+  height: 20px;
+}
