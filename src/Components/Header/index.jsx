@@ -1,13 +1,18 @@
 import React from "react";
 import logo from "../../images/logo.png";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import styles from "./Header.module.css";
 
 function Navbar() {
   return (
     <BrowserRouter>
-      <nav>
+      <nav className={styles.nav}>
         <Link to="/">
-          <img src={logo} alt="Logo of the market place" className="logoImg" />
+          <img
+            src={logo}
+            alt="Logo of the market place"
+            className={styles.logoImg}
+          />
         </Link>
         <ul>
           <li>
