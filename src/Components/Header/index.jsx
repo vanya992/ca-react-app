@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../assets/images/logo.png";
 import shoppingCart from "../../assets/images/shoppingCart.png";
+import search from "../../assets/images/search.png";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
@@ -15,6 +16,16 @@ function Navbar() {
             className={styles.logoImg}
           />
         </Link>
+
+        <div className={styles.searchSection}>
+          <input type="text" placeholder="Search" />
+          <img
+            src={search}
+            alt="magnifying glass icon"
+            className={styles.searchIcon}
+          />
+        </div>
+
         <ul>
           <li>
             <Link to="/products">Products</Link>
