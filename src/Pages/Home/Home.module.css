@@ -1,0 +1,31 @@
+.backgroundImg {
+  object-fit: cover;
+  width: 100%;
+  display: block;
+}
+
+.productImg {
+  width: 5em;
+  height: auto;
+}
+
+.products > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.seeMore {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.seeMoreButton {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
