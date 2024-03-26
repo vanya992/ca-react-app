@@ -1,0 +1,34 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 10px double var(--dark-footer);
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 50%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.form:hover {
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+input,
+textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid var(--dark-footer);
+  background: transparent;
+}
+
+button {
+  margin-top: 10px;
+  width: 50%;
+}
+
+.content {
+  display: flex;
+}
