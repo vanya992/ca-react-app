@@ -5,7 +5,7 @@
   border: 10px double var(--dark-footer);
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: 50%;
+  width: 100%;
   max-width: 500px;
   margin: 20px auto;
 }
@@ -29,6 +29,23 @@ button {
   width: 50%;
 }
 
-.content {
+.container {
   display: flex;
+  align-items: center;
+}
+
+.sectionOne img {
+  width: 50px;
+  height: auto;
+}
+
+.sectionOne {
+  border-right: 5px double var(--dark-footer);
+  width: 50%;
+}
+
+.sectionOne,
+.sectionTwo {
+  width: 50%;
+  margin: 20px;
 }
