@@ -2,7 +2,8 @@ import { Helmet } from "react-helmet";
 import { useFetch } from "../../hooks/useFetch";
 import market from "../../assets/images/market.png";
 import styles from "./Home.module.css";
-import { Card } from "../../Components/Card";
+import { CardFront } from "../../Components/Card";
+import SaleSign from "../../Components/Sale";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
@@ -31,12 +32,12 @@ export const Home = () => {
       <div>
         Your one-stop shop. Let's bet you will find what you're looking for.
       </div>
-      <h2>Products</h2>
+      <SaleSign />
       <section className={styles.products}>
         {productsWithBiggestDiscounts.length > 0 ? (
           <div>
             {productsWithBiggestDiscounts.map((item, index) => (
-              <Card key={index} product={item} />
+              <CardFront key={index} product={item} />
             ))}
           </div>
         ) : (
