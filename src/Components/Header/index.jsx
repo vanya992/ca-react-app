@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/images/logo.png";
 import shoppingCart from "../../assets/images/shoppingCart.png";
-import search from "../../assets/images/search.png";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { Home } from "../../Pages/Home";
+import { SearchBar } from "../Search";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
+import { SearchResults } from "../SearchResults";
+import { useCartStore } from "../../store/cartStore";
 
 function Navbar() {
+  const [results, setResults] = useState([]);
+  const [input, setInput] = useState("");
+
+  const cartProducts = useCartStore((state) => state.products);
+  const itemCount = cartProducts.reduce(
+    (total, product) => total + product.count,
+    0
+  );
+
   return (
     <nav className={styles.nav}>
       <Link to="/">
@@ -16,16 +26,8 @@ function Navbar() {
           className={styles.logoImg}
         />
       </Link>
-
-      <div className={styles.searchSection}>
-        <input type="text" placeholder="Search" />
-        <img
-          src={search}
-          alt="magnifying glass icon"
-          className={styles.searchIcon}
-        />
-      </div>
-
+      <SearchBar setResults={setResults} input={input} setInput={setInput} />
+      {results.length > 0 && <SearchResults results={results} />}
       <ul>
         <li>
           <Link to="/products">Products</Link>
@@ -37,9 +39,12 @@ function Navbar() {
           <Link to="/cart">
             <img
               src={shoppingCart}
-              alt="Logo of the market place"
+              alt="Shopping Cart"
               className={styles.shoppingCart}
             />
+            {itemCount > 0 && (
+              <span className={styles.cartCount}>{itemCount}</span>
+            )}
           </Link>
         </li>
       </ul>
