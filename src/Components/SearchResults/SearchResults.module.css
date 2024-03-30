@@ -1,0 +1,23 @@
+.results {
+  position: absolute;
+  width: 30%;
+  margin: 0 auto;
+  text-align: left;
+  background-color: var(--dark-footer);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  top: 100%;
+  z-index: 1;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.resultItem {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.resultItem:hover {
+  background-color: var(--red);
+}

@@ -1,12 +1,12 @@
 nav {
   display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  padding: 0 20px;
+  justify-content: space-around;
   color: var(--black-text);
-  background-color: var(--white);
+  background-color: rgba(250, 250, 250, 0.5);
   width: 100%;
   font-family: "Hind";
+  z-index: 1;
+  position: relative;
 }
 
 nav a {
@@ -23,16 +23,16 @@ nav ul {
   margin: 0;
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   align-items: center;
 }
 
 nav ul a:active {
-  background-color: blueviolet;
+  text-decoration: underline;
 }
 
 nav ul a:hover {
-  background-color: aqua;
+  background-color: var(--soft-peach);
 }
 
 .logoImg {
@@ -46,31 +46,29 @@ nav ul a:hover {
   height: 20px;
 }
 
-.searchSection {
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  background: var(--dark-footer);
-  margin: 0.5rem;
-  border-radius: 50px;
-}
-
-.searchSection input {
-  padding: 5px;
-  background: transparent;
-  border: none;
-  outline: 0;
-  max-width: 200px;
+.shoppingCart span:nth-child(1) {
+  font-size: 2rem;
   color: var(--white);
-  font-size: 15px;
 }
 
-.searchIcon {
-  justify-self: center;
-  cursor: pointer;
+.shoppingCart span:nth-child(2) {
+  padding: 0 3px;
+  background-color: var(--soft-peach);
+  color: var(--white);
   font-weight: bold;
+  border-radius: 5px;
+  position: relative;
+  top: -15px;
 }
 
-.searchSection input::placeholder {
+.cartCount {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: var(--soft-peach);
   color: var(--white);
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 0 5px;
+  font-size: 0.75rem;
 }

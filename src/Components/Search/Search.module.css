@@ -1,0 +1,33 @@
+.searchSection {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  background: var(--dark-footer);
+  margin: 0.5rem;
+  border-radius: 50px;
+}
+
+.searchSection input {
+  padding: 2px;
+  background: transparent;
+  border: none;
+  outline: 0;
+  max-width: 200px;
+  color: var(--white);
+  font-size: 15px;
+}
+
+.searchIcon {
+  justify-self: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.searchSection input::placeholder {
+  color: var(--white);
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+}

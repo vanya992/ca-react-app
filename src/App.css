@@ -5,7 +5,6 @@
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  overflow: hidden;
 }
 
 body {
@@ -17,15 +16,26 @@ main {
   flex: 1;
 }
 
-.readMore {
-  background-color: transparent;
-  padding: 3px 10px;
-  margin: 10px;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.readMore,
+.send,
+.addToCartButton {
+  background-color: var(--dark-footer);
+  color: var(--white);
+  padding: 5px 10px;
+  margin: 20px;
   border: 2px solid var(--border-box);
   border-radius: 20px;
 }
 
-.readMore:hover {
+.readMore:hover,
+.send:hover {
+  background-color: transparent;
+  color: var(--dark-footer);
   box-shadow: 2px 2px 5px var(--dark-footer);
 }
 

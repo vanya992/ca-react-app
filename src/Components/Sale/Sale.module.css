@@ -1,0 +1,27 @@
+@keyframes scrollSale {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.saleContainer {
+  overflow: hidden;
+  background-color: red;
+  white-space: nowrap;
+  padding: 10px 0;
+  margin: 20px 0;
+}
+
+.saleSign {
+  display: inline-block;
+  animation: scrollSale 60s linear infinite;
+  padding: 0 20px;
+  font-size: 2rem;
+}
+
+.saleSign::after {
+  content: "SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE SALE";
+}
