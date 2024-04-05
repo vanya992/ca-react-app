@@ -1,6 +1,6 @@
 .productPage {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin: auto;
   align-items: center;
@@ -51,16 +51,10 @@
   margin: 10px 0;
 }
 
-/* DESKTOP */
 @media (min-width: 992px) {
   .productPage {
-    width: 80%;
-  }
-}
-
-/* LARGE DESKTOP */
-@media (min-width: 1300px) {
-  .productInfo {
+    display: flex;
+    flex-direction: row;
     width: 80%;
   }
 }
