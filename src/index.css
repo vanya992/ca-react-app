@@ -2,3 +2,8 @@
   font-family: "Hind";
   src: url("./assets/fonts/Hind/Hind-Regular.ttf");
 }
+
+@font-face {
+  font-family: "Anton";
+  src: url("./assets/fonts/Anton/Anton-Regular.ttf");
+}

@@ -7,9 +7,10 @@ body {
 :root {
   --black-text: #000;
   --white: #ffffff;
-  --dark-footer: #292626;
+  --dark-footer: rgb(41, 38, 38);
   --soft-peach: bisque;
   --border-box: #ddd;
   --red: #ff0000;
   --green: #00eb4e;
+  --half-transparent-bg: rgba(41, 38, 38, 0.5);
 }

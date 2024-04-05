@@ -4,12 +4,21 @@
   min-height: 100vh;
   max-width: 100%;
   margin: 0 auto;
-  text-align: center;
 }
 
 body {
   font-family: "Hind";
   min-height: 100vh;
+  text-align: center;
+}
+
+h1,
+h2 {
+  font-family: "Anton";
+}
+
+h1 {
+  font-size: 3rem;
 }
 
 main {
@@ -21,22 +30,56 @@ a {
   color: inherit;
 }
 
-.readMore,
+.strikethrough {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.discountPriceContainer {
+  color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.alert {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: 100%;
+}
+
 .send,
-.addToCartButton {
+.cardButton {
   background-color: var(--dark-footer);
   color: var(--white);
   padding: 5px 10px;
   margin: 20px;
   border: 2px solid var(--border-box);
   border-radius: 20px;
+  cursor: pointer;
 }
 
-.readMore:hover,
+.cardButton:hover,
 .send:hover {
   background-color: transparent;
   color: var(--dark-footer);
   box-shadow: 2px 2px 5px var(--dark-footer);
+}
+
+.ctaButton {
+  background-color: var(--dark-footer);
+  padding: 10px 20px;
+  margin: 10px;
+  color: var(--white);
+}
+
+.ctaButton:hover {
+  background-color: var(--half-transparent-bg);
+  border-radius: 2%;
+  color: var(--dark-footer);
 }
 
 @keyframes logo-spin {
