@@ -12,24 +12,20 @@ const loadProductsFromLocalStorage = () => {
 export const useCartStore = create((set, get) => ({
   products: loadProductsFromLocalStorage(),
 
-  addProduct: (product) => {
+  addProduct: (productToAdd) => {
     const products = get().products;
-    const productIndex = products.findIndex((p) => p.id === product.id);
+    const existingProductIndex = products.findIndex(
+      (p) => p.id === productToAdd.id
+    );
 
-    let updatedProducts;
-
-    if (productIndex !== -1) {
-      const updatedProduct = {
-        ...products[productIndex],
-        count: products[productIndex].count + 1,
-      };
-      updatedProducts = [...products];
-      updatedProducts[productIndex] = updatedProduct;
+    if (existingProductIndex !== -1) {
+      products[existingProductIndex].count += 1;
     } else {
-      updatedProducts = [...products, { ...product, count: 1 }];
+      products.push({ ...productToAdd, count: 1 });
     }
-    saveProductsToLocalStorage(updatedProducts);
-    set({ products: updatedProducts });
+
+    saveProductsToLocalStorage(products);
+    set({ products });
   },
 
   deleteProduct: (productId) => {
@@ -46,12 +42,14 @@ export const useCartStore = create((set, get) => ({
   },
 
   updateProductCount: (productId, count) => {
-    const updatedProducts = get().products.map((product) => {
-      if (product.id === productId) {
-        return { ...product, count };
-      }
-      return product;
-    });
+    const updatedProducts = get()
+      .products.map((product) => {
+        if (product.id === productId) {
+          return { ...product, count };
+        }
+        return product;
+      })
+      .filter((product) => product.count > 0);
     saveProductsToLocalStorage(updatedProducts);
     set({ products: updatedProducts });
   },
