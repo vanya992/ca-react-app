@@ -1,0 +1,32 @@
+.cartProduct {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  border-bottom: solid 2px var(--dark-footer);
+}
+
+.productImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.productDetails {
+  flex-grow: 1;
+}
+
+.productPricing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.discountedPrice {
+  color: #ff0000;
+}
