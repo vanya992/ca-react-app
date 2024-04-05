@@ -16,7 +16,7 @@ export const Products = () => {
       <Helmet>
         <title>Products | Market.</title>
       </Helmet>
-      <h2>Products</h2>
+      <h1>Products</h1>
       <section className={styles.products}>
         {data.length > 0 ? (
           <div className={styles.productGrid}>
