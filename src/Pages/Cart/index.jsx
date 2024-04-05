@@ -64,7 +64,7 @@ export const Cart = () => {
         {products.length === 0 ? (
           <>
             <p>Your cart is empty. Go back and find something you like.</p>
-            <Link to="/products" className="cartButton">
+            <Link to="/products" className="ctaButton">
               Back to shopping
             </Link>
           </>
