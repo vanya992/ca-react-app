@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import { useFetch } from "../../hooks/useFetch";
 import market from "../../assets/images/market.png";
 import styles from "./Home.module.css";
-import { CardFront } from "../../Components/Card";
+import { Card } from "../../Components/Card";
 import SaleSign from "../../Components/Sale";
 import { Link } from "react-router-dom";
 
@@ -30,14 +30,16 @@ export const Home = () => {
       </Helmet>
       <img src={market} className={styles.backgroundImg} />
       <div>
-        Your one-stop shop. Let's bet you will find what you're looking for.
+        <h2>
+          Your one-stop shop. Let's bet you will find what you're looking for.
+        </h2>
       </div>
       <SaleSign />
       <section className={styles.products}>
         {productsWithBiggestDiscounts.length > 0 ? (
           <div>
             {productsWithBiggestDiscounts.map((item, index) => (
-              <CardFront key={index} product={item} />
+              <Card key={index} product={item} />
             ))}
           </div>
         ) : (
@@ -45,7 +47,7 @@ export const Home = () => {
         )}
       </section>
       <div className={styles.seeMore}>
-        <Link to="/products" className={styles.seeMoreButton}>
+        <Link to="/products" className="ctaButton">
           SEE MORE
         </Link>
       </div>
