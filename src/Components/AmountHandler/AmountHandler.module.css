@@ -1,0 +1,28 @@
+.counter {
+  color: black;
+  display: flex;
+  align-items: flex-end;
+}
+
+.count {
+  color: black;
+  padding: 0px 5px;
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  padding: var(--spacing-2);
+  background-color: var(--primary);
+  color: inherit;
+  width: 25px;
+  text-align: center;
+}
+
+.buttonPlus {
+  border-radius: 0 5px 5px 0;
+}
+
+.buttonMinus {
+  border-radius: 5px 0 0 5px;
+}
