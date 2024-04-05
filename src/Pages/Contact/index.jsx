@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import styles from "./Contact.module.css";
 import logo2 from "../../assets/images/logo2.png";
+import { AlertNotification } from "../../Components/AlertNotification";
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,12 @@ export const ContactForm = () => {
     subject: "",
     message: "",
   });
+
+  const [showLabel, setShowLabel] = useState(false);
+
+  const handleUnmount = () => {
+    setShowLabel(false);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +34,7 @@ export const ContactForm = () => {
     setFormData({
       name: "",
       email: "",
+      subject: "",
       message: "",
     });
   };
@@ -36,6 +44,14 @@ export const ContactForm = () => {
       <Helmet>
         <title>Contact | Market.</title>
       </Helmet>
+      {showLabel && (
+        <AlertNotification
+          message={
+            "Your message is sent. Thank you for your interess. We will be in touch shortly."
+          }
+          onUnmount={handleUnmount}
+        />
+      )}
       <div class={styles.container}>
         <section className={styles.sectionOne}>
           <img src={logo2} alt="Contact page" />
@@ -89,7 +105,14 @@ export const ContactForm = () => {
               minLength="3"
             />
 
-            <button type="submit" className="send">
+            <button
+              type="submit"
+              className="send"
+              onClick={() => {
+                setShowLabel(true);
+                addProduct(data);
+              }}
+            >
               Send
             </button>
           </form>
