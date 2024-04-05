@@ -11,8 +11,8 @@ function Navbar() {
   const [results, setResults] = useState([]);
   const [input, setInput] = useState("");
 
-  const cartProducts = useCartStore((state) => state.products);
-  const itemCount = cartProducts.reduce(
+  const products = useCartStore((state) => state.products);
+  const itemCount = products.reduce(
     (total, product) => total + product.count,
     0
   );
