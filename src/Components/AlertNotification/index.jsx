@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import styles from "./AlertNotification.module.css";
 
 export const AlertNotification = ({ message, onUnmount }) => {
   useEffect(() => {
@@ -14,8 +15,10 @@ export const AlertNotification = ({ message, onUnmount }) => {
   }, [onUnmount]);
 
   return (
-    <div className={styles.screenLabel}>
-      <p className={styles.labelText}>{message}</p>
+    <div className="alert">
+      <div className={styles.alert}>
+        <p className={styles.labelText}>{message}</p>
+      </div>
     </div>
   );
 };

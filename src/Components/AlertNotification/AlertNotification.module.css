@@ -1,0 +1,15 @@
+.alert {
+  background-color: var(--dark-footer);
+  display: block;
+  width: 100%;
+  height: auto;
+  top: 0;
+  padding: 5px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.labelText {
+  color: white;
+  font-size: 30px;
+}
