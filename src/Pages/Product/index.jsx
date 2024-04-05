@@ -34,6 +34,16 @@ export const Product = () => {
       )}%`
     : null;
 
+  const Review = ({ data, showRating = true }) => {
+    return (
+      <div>
+        <p>{data.username}</p>
+        {showRating && <p>Rating: {data.rating}</p>}
+        <p>{data.description}</p>
+      </div>
+    );
+  };
+
   let content;
   if (isError) {
     content = <div className="error">There was an error loading the data.</div>;
@@ -43,49 +53,37 @@ export const Product = () => {
     content = (
       <>
         <h2>{data.title}</h2>
-        <div className={styles.divider}></div>
         <p>{data.description}</p>
-        <div className={`${styles.divider} ${styles.second}`}></div>
+        <div className={styles.priceContainer}>
+          {!isDiscounted && `NOK ${data.price}`}
+          <div className={priceClassNames}>
+            {isDiscounted && `NOK ${data.price}`}
+          </div>
+          <div className={styles.discountPriceContainer}>
+            {isDiscounted && (
+              <div className={discountClassNames}>- {percentage}</div>
+            )}
+            {isDiscounted &&
+              data.discountedPrice &&
+              `NOK ${data.discountedPrice}`}
+          </div>
+        </div>
+        <button
+          onClick={() => {
+            setShowLabel(true);
+            addProduct(data);
+          }}
+          className="cardButton"
+        >
+          Add to cart
+        </button>
         <div className={styles.ratingContainer}>
-          <div className={styles.rating}>
-            <span className="material-symbols-outlined noclick">star</span>
-            {data.rating}
-          </div>
-          <div className={styles.reviews}>
-            {data && data.reviews ? data.reviews.length : 0} reviews
-          </div>
-        </div>
-        <div className={styles.actions}>
-          <div className={styles.priceContainer}>
-            {!isDiscounted && `NOK ${data.price}`}
-            <div className={priceClassNames}>
-              {isDiscounted && `NOK ${data.price}`}
-            </div>
-            <div className={styles.discountPriceContainer}>
-              {isDiscounted && (
-                <div className={discountClassNames}>- {percentage}</div>
-              )}
-              {isDiscounted &&
-                data.discountedPrice &&
-                `NOK ${data.discountedPrice}`}
-            </div>
-          </div>
-          <button
-            className="cta large"
-            onClick={() => {
-              setShowLabel(true);
-              addProduct(data);
-            }}
-          >
-            Add to cart
-          </button>
-        </div>
-        <div>
           <h3 className={styles.reviewsTitle}>Reviews</h3>
           <div className={styles.reviewsContainer}>
-            {" "}
             {data.reviews && data.reviews.length > 0 ? (
-              data.reviews.map((item) => <Review data={item} key={item.id} />)
+              data.reviews.map((item) => (
+                <Review data={item} key={item.id} showRating={false} />
+              ))
             ) : (
               <p>No reviews</p>
             )}
@@ -106,9 +104,9 @@ export const Product = () => {
         />
       )}
       <img
-        src={data.imageUrl}
+        src={data.image ? data.image.url : "No image available."}
         alt={data.title}
-        className={styles.productImageLarge}
+        className={styles.productImage}
       />
       <section className={styles.productInfo}>{content}</section>
     </main>
