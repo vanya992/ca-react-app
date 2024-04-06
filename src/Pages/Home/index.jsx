@@ -1,15 +1,21 @@
 import { Helmet } from "react-helmet";
+import { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import market from "../../assets/images/market.png";
 import styles from "./Home.module.css";
 import { Card } from "../../Components/Card";
 import SaleSign from "../../Components/Sale";
 import { Link } from "react-router-dom";
+import { SearchBar } from "../../Components/Search";
+import { SearchResults } from "../../Components/SearchResults";
 
 export const Home = () => {
   const { data, isLoading, isError } = useFetch(
     "https://v2.api.noroff.dev/online-shop"
   );
+
+  const [results, setResults] = useState([]);
+  const [input, setInput] = useState("");
 
   const productsWithBiggestDiscounts = data
     .map((product) => ({
@@ -32,7 +38,9 @@ export const Home = () => {
       <div>
         <h2>
           Your one-stop shop. Let's bet you will find what you're looking for.
-        </h2>
+        </h2>{" "}
+        <SearchBar setResults={setResults} input={input} setInput={setInput} />
+        {results.length > 0 && <SearchResults results={results} />}
       </div>
       <SaleSign />
       <section className={styles.products}>
@@ -48,7 +56,7 @@ export const Home = () => {
       </section>
       <div className={styles.seeMore}>
         <Link to="/products" className="ctaButton">
-          SEE MORE
+          SEE MORE PRODUCTS
         </Link>
       </div>
     </main>

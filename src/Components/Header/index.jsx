@@ -1,24 +1,33 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import logo from "../../assets/images/logo.png";
 import shoppingCart from "../../assets/images/shoppingCart.png";
-import { SearchBar } from "../Search";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-import { SearchResults } from "../SearchResults";
 import { useCartStore } from "../../store/cartStore";
+import { FaBars, FaTimes, FaCartPlus } from "react-icons/fa";
 
 function Navbar() {
-  const [results, setResults] = useState([]);
-  const [input, setInput] = useState("");
-
   const products = useCartStore((state) => state.products);
   const itemCount = products.reduce(
     (total, product) => total + product.count,
     0
   );
 
+  const [isNavVisible, setIsNavVisible] = useState(false);
+
+  const navRef = useRef();
+
+  const showNavbar = () => {
+    setIsNavVisible((prevVisible) => !prevVisible);
+    navRef.current.classList.toggle(styles.responsiveNav);
+  };
+
+  const closeMenu = () => {
+    setIsNavVisible(false);
+  };
+
   return (
-    <nav className={styles.nav}>
+    <header>
       <Link to="/">
         <img
           src={logo}
@@ -26,29 +35,39 @@ function Navbar() {
           className={styles.logoImg}
         />
       </Link>
-      <SearchBar setResults={setResults} input={input} setInput={setInput} />
-      {results.length > 0 && <SearchResults results={results} />}
-      <ul>
-        <li>
-          <Link to="/products">Products</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-        </li>
-        <li>
-          <Link to="/cart">
-            <img
-              src={shoppingCart}
-              alt="Shopping Cart"
-              className={styles.shoppingCart}
-            />
-            {itemCount > 0 && (
-              <span className={styles.cartCount}>{itemCount}</span>
-            )}
-          </Link>
-        </li>
-      </ul>
-    </nav>
+      <nav
+        className={`${styles.nav} ${isNavVisible ? styles.responsiveNav : ""}`}
+        ref={navRef}
+      >
+        {" "}
+        <button className={styles.close} onClick={showNavbar}>
+          <FaTimes />
+        </button>
+        <ul>
+          <li>
+            <Link to="/products" onClick={closeMenu}>
+              Products
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" onClick={closeMenu}>
+              Contact
+            </Link>
+          </li>
+          <li>
+            <Link to="/cart" onClick={closeMenu} className={styles.cart}>
+              <FaCartPlus />
+              {itemCount > 0 && (
+                <span className={styles.cartCount}>{itemCount}</span>
+              )}
+            </Link>
+          </li>
+        </ul>
+      </nav>
+      <button className={styles.burger} onClick={showNavbar}>
+        <FaBars />
+      </button>
+    </header>
   );
 }
 
