@@ -27,11 +27,3 @@
   justify-content: center;
   padding: 20px;
 }
-
-.seeMoreButton {
-  color: var(--dark-footer);
-  border: 1px solid var(--green);
-  padding: 10px 20px;
-  text-decoration: none;
-  margin: 20px auto;
-}
