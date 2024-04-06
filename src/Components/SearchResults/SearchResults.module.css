@@ -1,20 +1,21 @@
 .results {
   position: absolute;
-  width: 30%;
-  margin: 0 auto;
+  width: 100%;
+  margin: auto;
   text-align: left;
   background-color: var(--dark-footer);
   color: var(--white);
   display: flex;
   flex-direction: column;
-  top: 100%;
+  align-self: center;
   z-index: 1;
   max-height: 200px;
   overflow: auto;
+  border-radius: 20px;
 }
 
 .resultItem {
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
   cursor: pointer;
 }
 
