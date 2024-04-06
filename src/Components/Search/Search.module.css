@@ -1,13 +1,15 @@
 .searchSection {
   display: flex;
-  align-items: center;
+  justify-content: center;
   padding: 5px 20px;
   background: var(--dark-footer);
-  margin: 0.5rem;
+  margin: auto;
   border-radius: 50px;
+  max-width: 200px;
 }
 
 .searchSection input {
+  position: relative;
   padding: 2px;
   background: transparent;
   border: none;
@@ -30,4 +32,5 @@
 .searchIcon {
   width: 20px;
   height: 20px;
+  margin: auto;
 }
