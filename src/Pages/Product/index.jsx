@@ -20,7 +20,6 @@ export const Product = () => {
     setShowLabel(false);
   };
 
-  // Price handling
   const isDiscounted = data.price > data.discountedPrice;
   const priceClassNames = isDiscounted
     ? `${styles.price} ${styles.strikethrough}`

@@ -15,12 +15,11 @@
 .productInfo {
   display: flex;
   flex-direction: column;
-  margin: auto;
   justify-content: center;
 }
 
 .productImage {
-  width: 500px;
+  width: auto;
   height: 500px;
   object-fit: cover;
 }
