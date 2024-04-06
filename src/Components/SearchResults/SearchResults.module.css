@@ -19,6 +19,10 @@
   cursor: pointer;
 }
 
+.noResults {
+  color: var(--red);
+}
+
 .resultItem:hover {
   background-color: var(--red);
 }
