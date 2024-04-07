@@ -7,7 +7,7 @@ export const AlertNotification = ({ message, onUnmount }) => {
       if (onUnmount) {
         onUnmount();
       }
-    }, 3000);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);

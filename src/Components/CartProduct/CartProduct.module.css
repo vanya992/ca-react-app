@@ -30,3 +30,32 @@
 .discountedPrice {
   color: #ff0000;
 }
+
+@media (max-width: 600px) {
+  .cartProduct {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .productImage {
+    width: 120px;
+    height: 120px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .productDetails {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .productPricing {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .strikethrough,
+  .discountedPrice {
+    font-size: 0.9rem;
+  }
+}

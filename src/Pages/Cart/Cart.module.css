@@ -3,4 +3,18 @@
   flex-direction: column;
   justify-content: flex-end;
   margin-top: 20px;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .totalAndCheckout {
+    width: 90%;
+    margin-top: 10px;
+  }
+
+  .ctaButton {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+  }
 }
