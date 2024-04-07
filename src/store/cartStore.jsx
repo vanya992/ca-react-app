@@ -13,7 +13,7 @@ export const useCartStore = create((set, get) => ({
   products: loadProductsFromLocalStorage(),
 
   addProduct: (productToAdd) => {
-    const products = get().products;
+    const products = get().products.slice();
     const existingProductIndex = products.findIndex(
       (p) => p.id === productToAdd.id
     );
