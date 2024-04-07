@@ -2,13 +2,14 @@ import { Helmet } from "react-helmet";
 import { useFetch } from "../../hooks/useFetch";
 import styles from "./Products.module.css";
 import { Card } from "../../Components/Card";
+import Loader from "../../Components/Loader";
 
 export const Products = () => {
   const { data, isLoading, isError } = useFetch(
     "https://v2.api.noroff.dev/online-shop"
   );
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loader />;
   if (isError) return <div>Error loading data.</div>;
 
   return (

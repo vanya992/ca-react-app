@@ -9,8 +9,8 @@
 }
 
 .productImage {
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 400px;
+  max-height: 400px;
   object-fit: cover;
   margin-bottom: 20px;
 }
@@ -85,9 +85,11 @@
 
   .productImage {
     flex: 1;
-    max-width: 500px;
-    max-height: 500px;
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
     margin-right: 40px;
+    border-radius: 5px;
   }
 
   .productInfo {

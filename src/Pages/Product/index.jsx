@@ -7,6 +7,7 @@ import { useFetch } from "../../hooks/useFetch";
 import { useCartStore } from "../../store/cartStore";
 import styles from "./Product.module.css";
 import { FaStar } from "react-icons/fa";
+import Loader from "../../Components/Loader/index.jsx";
 
 export const Product = () => {
   let params = useParams();
@@ -52,7 +53,7 @@ export const Product = () => {
   if (isError) {
     content = <div className="error">There was an error loading the data.</div>;
   } else if (isLoading) {
-    content = <div>Loading</div>;
+    content = <Loader />;
   } else {
     content = (
       <>

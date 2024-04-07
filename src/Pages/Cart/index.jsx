@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styles from "./Cart.module.css";
 import { useCartStore } from "../../store/cartStore";
 import { CartProduct } from "../../Components/CartProduct";
-import { AlertNotification } from "../../Components/AlertNotification";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -31,12 +30,6 @@ export const Cart = () => {
     calculateTotalPrice();
   };
 
-  const [showLabel, setShowLabel] = useState(false);
-
-  const handleUnmount = () => {
-    setShowLabel(false);
-  };
-
   const handleCheckout = (e) => {
     e.preventDefault();
     if (products.length === 0) {
@@ -52,12 +45,6 @@ export const Cart = () => {
       <Helmet>
         <title>Cart | Market.</title>
       </Helmet>
-      {showLabel && (
-        <AlertNotification
-          message={"You have no items in your cart."}
-          onUnmount={handleUnmount}
-        />
-      )}
       <section>
         <h1>Cart</h1>
         {products.length === 0 ? (
