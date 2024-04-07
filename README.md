@@ -30,13 +30,13 @@ Market is fully deployed and accessible online, providing instant access to all 
 
   1. Clone the repository
   ```bash
-git clone https://github.com/vanya992/ca-react-app.git
-```
+  git clone https://github.com/vanya992/ca-react-app.git
+  ```
 
 2. Install dependencies
-```bash
-npm install
-```
+  ```bash
+  npm install
+  ```
 
 ### Running
 To run the project localy, follow these commands:
@@ -44,12 +44,12 @@ To run the project localy, follow these commands:
   - For production build
      ```bash
      npm run build
-```
+    ```
 
   - Start the development server
-  ```bash
-  npm run dev
-```
+    ```bash
+    npm run dev
+    ```
 
 
 ## Contributing 
