@@ -8,6 +8,7 @@ import SaleSign from "../../Components/Sale";
 import { Link } from "react-router-dom";
 import { SearchBar } from "../../Components/Search";
 import { SearchResults } from "../../Components/SearchResults";
+import Loader from "../../Components/Loader";
 
 export const Home = () => {
   const { data, isLoading, isError } = useFetch(
@@ -26,7 +27,7 @@ export const Home = () => {
     .sort((a, b) => b.discountPercentage - a.discountPercentage)
     .slice(0, 5);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loader />;
   if (isError) return <div>Error loading data.</div>;
 
   return (
