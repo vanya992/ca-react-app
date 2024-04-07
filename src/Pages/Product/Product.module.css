@@ -80,7 +80,6 @@
 @media (min-width: 992px) {
   .productPage {
     flex-direction: row;
-    align-items: flex-start;
     justify-content: center;
   }
 
@@ -93,5 +92,6 @@
 
   .productInfo {
     flex: 1;
+    text-align: left;
   }
 }
