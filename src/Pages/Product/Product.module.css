@@ -3,14 +3,14 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  max-width: 1200px;
+  width: 90%;
   margin: auto;
   padding: 20px;
 }
 
 .productImage {
   max-width: 500px;
-  height: auto;
+  max-height: 500px;
   object-fit: cover;
   margin-bottom: 20px;
 }
@@ -86,7 +86,8 @@
 
   .productImage {
     flex: 1;
-    max-width: none;
+    max-width: 500px;
+    max-height: 500px;
     margin-right: 40px;
   }
 
