@@ -27,17 +27,18 @@ export const Card = ({ product }) => {
       <div className={styles.cardBody}>
         <h2 className={styles.productTitle}>{product.title}</h2>
         <div className={styles.priceContainer}>
-          {!isDiscounted && `$ ${product.price}`}
           <div className={priceClassNames}>
-            {isDiscounted && `$ ${product.price}`}
+            {isDiscounted ? `NOK ${product.price}` : ""}
           </div>
-          <div className={styles.discountPriceContainer}>
+          <div>
+            <div className={discountClassNames}>
+              {isDiscounted
+                ? `NOK ${product.discountedPrice}`
+                : `NOK ${product.price}`}
+            </div>
             {isDiscounted && (
-              <div className={discountClassNames}>- {percentage}</div>
+              <div className={styles.discountPercentage}>- {percentage}</div>
             )}
-            {isDiscounted &&
-              product.discountedPrice &&
-              `$ ${product.discountedPrice}`}
           </div>
         </div>
         <Link to={`/product/${product.id}`} className="cardButton">
