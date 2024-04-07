@@ -58,4 +58,10 @@
     flex-direction: row;
     width: 80%;
   }
+
+  .productImage {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+  }
 }
