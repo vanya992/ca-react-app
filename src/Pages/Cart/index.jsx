@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Cart.module.css";
 import { useCartStore } from "../../store/cartStore";
 import { CartProduct } from "../../Components/CartProduct";
 import { AlertNotification } from "../../Components/AlertNotification";
-import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 
