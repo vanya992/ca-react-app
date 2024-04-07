@@ -30,7 +30,7 @@ Market is fully deployed and accessible online, providing instant access to all 
 
   1. Clone the repository
   ```bash
-git clone https://github.com/vanya992/ca-react-app.gitnpm ins
+git clone https://github.com/vanya992/ca-react-app.git
 ```
 
 2. Install dependencies
