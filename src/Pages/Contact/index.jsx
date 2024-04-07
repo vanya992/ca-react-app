@@ -120,9 +120,4 @@ export const ContactForm = () => {
       </div>
     </main>
   );
-
-  if (!formData.email.includes("@")) {
-    alert("Please enter a valid email address.");
-    return;
-  }
 };

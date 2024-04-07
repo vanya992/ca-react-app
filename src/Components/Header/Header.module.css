@@ -69,7 +69,7 @@ header {
   background-color: transparent;
   border: none;
   outline: none;
-  color: var(--dark-footer);
+  color: var(--white);
   visibility: hidden;
   opacity: 0;
   width: auto;
