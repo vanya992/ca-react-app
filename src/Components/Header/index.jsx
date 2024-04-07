@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
-import logo from "../../assets/images/logo.png";
-import shoppingCart from "../../assets/images/shoppingCart.png";
+import logo from "../../assets/images/logo-white.png";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import { useCartStore } from "../../store/cartStore";

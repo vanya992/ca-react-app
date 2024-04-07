@@ -6,6 +6,7 @@ import { Review } from "../../Components/Review";
 import { useFetch } from "../../hooks/useFetch";
 import { useCartStore } from "../../store/cartStore";
 import styles from "./Product.module.css";
+import { FaStar } from "react-icons/fa";
 
 export const Product = () => {
   let params = useParams();
@@ -36,8 +37,12 @@ export const Product = () => {
   const Review = ({ data, showRating = true }) => {
     return (
       <div>
+        {showRating && (
+          <p>
+            <FaStar /> {data.rating}
+          </p>
+        )}
         <p>{data.username}</p>
-        {showRating && <p>Rating: {data.rating}</p>}
         <p>{data.description}</p>
       </div>
     );
@@ -54,19 +59,21 @@ export const Product = () => {
         <h2>{data.title}</h2>
         <p>{data.description}</p>
         <div className={styles.priceContainer}>
-          {!isDiscounted && `NOK ${data.price}`}
-          <div className={priceClassNames}>
-            {isDiscounted && `NOK ${data.price}`}
-          </div>
-          <div className={styles.discountPriceContainer}>
-            {isDiscounted && (
-              <div className={discountClassNames}>- {percentage}</div>
-            )}
-            {isDiscounted &&
-              data.discountedPrice &&
-              `NOK ${data.discountedPrice}`}
-          </div>
+          {isDiscounted ? (
+            <>
+              <div className={`${styles.price} ${styles.strikethrough}`}>
+                NOK {data.price}
+              </div>
+              <div className={styles.discountedPrice}>
+                NOK {data.discountedPrice}
+              </div>
+              <div className={styles.discountBadge}>{percentage} OFF</div>
+            </>
+          ) : (
+            <div className={styles.price}>NOK {data.price}</div>
+          )}
         </div>
+
         <button
           onClick={() => {
             setShowLabel(true);
@@ -78,15 +85,15 @@ export const Product = () => {
         </button>
         <div className={styles.ratingContainer}>
           <h3 className={styles.reviewsTitle}>Reviews</h3>
-          <div className={styles.reviewsContainer}>
-            {data.reviews && data.reviews.length > 0 ? (
-              data.reviews.map((item) => (
-                <Review data={item} key={item.id} showRating={false} />
-              ))
-            ) : (
-              <p>No reviews</p>
-            )}
-          </div>
+          {data.reviews && data.reviews.length > 0 ? (
+            <div className={styles.reviewsContainer}>
+              {data.reviews.map((review) => (
+                <Review key={review.id} data={review} showRating={true} />
+              ))}
+            </div>
+          ) : (
+            <p>No reviews yet.</p>
+          )}
         </div>
       </>
     );
